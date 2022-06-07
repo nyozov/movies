@@ -8,7 +8,7 @@ import { useState } from 'react'
 function App() {
  
   return (
-    <div className="App bg-black text-white">
+    <div className="App bg-black min-h-screen min-w-screen text-white">
     
      
       <Sidebar/>
