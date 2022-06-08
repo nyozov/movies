@@ -2,7 +2,7 @@ import { Row } from "./components/Row";
 import requests from "./requests";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,20 +10,30 @@ import {
   Link,
   useNavigate,
   Navigate,
+  useLocation
 } from "react-router-dom";
 import Selected from "./components/Selected";
 
 function App() {
-  
+  const location = useLocation()
+
   const [selected, setSelected] = useState({});
+  
+  useEffect(() => {
+   console.log('selected', selected)
+   console.log(location.pathname)
+  }, [])
+  
+
+  
  
   return (
-    <div className="App bg-black min-h-screen min-w-screen text-white overflow-clip">
+    <div className="App min-h-screen min-w-screen text-white overflow-clip">
       <Sidebar />
-      <div className="flex justify-between">
+      <div className="flex justify-between bg-black">
         <Navbar />
         <Routes>
-          <Route path={`/${String(selected.id)}`} element={<Selected selected={selected} />} />
+          <Route path={location.pathname === '/' ? `/${String(selected.id)}` : location.pathname} element={<Selected selected={selected} setSelected={setSelected}/>} />
 
           <Route
             path='/'

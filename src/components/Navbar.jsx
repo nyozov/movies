@@ -20,34 +20,7 @@ export default function Home() {
 
   console.log("query", query);
   const [menu, setMenu] = useState(false);
-  const checkActive = () => {
-    if (query.indexOf("inbox") !== -1) {
-      return "inbox";
-    } else if (query.indexOf("notebook") !== -1) {
-      return "notebook";
-    } else if (query.indexOf("notes") !== -1) {
-      return "notebook";
-    } else if (query.indexOf("calender_month_view") !== -1) {
-      return "calender_month_view";
-    } else if (query.indexOf("calender_week_view") !== -1) {
-      return "calender_month_view";
-    } else if (query.indexOf("calender_day_view") !== -1) {
-      return "calender_month_view";
-    } else if (query.indexOf("important") !== -1) {
-      return "important";
-    } else if (query.indexOf("projects") !== -1) {
-      return "projects";
-    } else if (query.indexOf("todo_project_files") !== -1) {
-      return "projects";
-    } else if (query.indexOf("todo_project_links") !== -1) {
-      return "projects";
-    } else if (query.indexOf("todo_project_notes") !== -1) {
-      return "projects";
-    } else if (query.indexOf("todo_project_todos") !== -1) {
-      return "projects";
-    }
-    return "home";
-  };
+ 
   return (
     <>
       {
@@ -72,7 +45,7 @@ export default function Home() {
           </svg>
         </div>
       }
-      {console.log("function", checkActive())}
+     
       <AnimatePresence>
         {menu && (
           <motion.div
@@ -116,11 +89,8 @@ export default function Home() {
                 <li className="w-1/2 flex justify-start mb-6 cursor-pointer">
                   <div onClick={()=>navigate('/')}
                     
-                    className={
-                      checkActive() == "home"
-                        ? "bg-gray-700 rounded-md text-gray-300 flex flex-col justify-center items-center w-20 h-20 p-4"
-                        : "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
-                    }
+                    className= "bg-gray-900 hover:bg-gray-700 rounded-md text-gray-400 flex flex-col justify-center items-center w-20 h-20 p-4"
+                      
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -149,9 +119,9 @@ export default function Home() {
                   <a
                     href="javascript:void(0)"
                     className={
-                      checkActive() == "inbox"
-                        ? "bg-gray-700 rounded-md text-gray-300 flex flex-col justify-center items-center w-20 h-20 p-4"
-                        : "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
+                   
+                       
+                        "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
                     }
                   >
                     <svg
@@ -175,130 +145,11 @@ export default function Home() {
                     </p>
                   </a>
                 </li>
-                <li className="w-1/2 flex justify-start mb-6">
-                  <a
-                    href="javascript:void(0)"
-                    className={
-                      checkActive() == "notebook"
-                        ? "bg-gray-700 rounded-md text-gray-300 flex flex-col justify-center items-center w-20 h-20 p-4"
-                        : "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
-                    }
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-notebook"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" />
-                      <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
-                      <line x1={13} y1={8} x2={15} y2={8} />
-                      <line x1={13} y1={12} x2={15} y2={12} />
-                    </svg>
-                    <p className="mt-1 uppercase font-semibold text-xs">
-                      notebook
-                    </p>
-                  </a>
-                </li>
-                <li className="w-1/2 flex justify-end mb-6">
-                  <a
-                    href="javascript:void(0)"
-                    className={
-                      checkActive() == "calender_month_view"
-                        ? "bg-gray-700 rounded-md text-gray-300 flex flex-col justify-center items-center w-20 h-20 p-4"
-                        : "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
-                    }
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-calendar-event"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" />
-                      <rect x={4} y={5} width={16} height={16} rx={2} />
-                      <line x1={16} y1={3} x2={16} y2={7} />
-                      <line x1={8} y1={3} x2={8} y2={7} />
-                      <line x1={4} y1={11} x2={20} y2={11} />
-                      <rect x={8} y={15} width={2} height={2} />
-                    </svg>
-                    <p className="mt-1 uppercase font-semibold text-xs">
-                      calendar
-                    </p>
-                  </a>
-                </li>
-                <li className="w-1/2 flex justify-start">
-                  <a
-                    href="javascript:void(0)"
-                    className={
-                      checkActive() == "important"
-                        ? "bg-gray-700 rounded-md text-gray-300 flex flex-col justify-center items-center w-20 h-20 p-4"
-                        : "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
-                    }
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-star"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" />
-                      <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z" />
-                    </svg>
-                    <p className="mt-1 uppercase font-semibold text-xs">
-                      important
-                    </p>
-                  </a>
-                </li>
-                <li className="w-1/2 flex justify-end">
-                  <a
-                    href="javascript:void(0)"
-                    className={
-                      checkActive() == "projects"
-                        ? "bg-gray-700 rounded-md text-gray-300 flex flex-col justify-center items-center w-20 h-20 p-4"
-                        : "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
-                    }
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-stack"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" />
-                      <polyline points="12 4 4 8 12 12 20 8 12 4" />
-                      <polyline points="4 12 12 16 20 12" />
-                      <polyline points="4 16 12 20 20 16" />
-                    </svg>
-                    <p className="mt-1 uppercase font-semibold text-xs">
-                      projects
-                    </p>
-                  </a>
-                </li>
+              
+               
+               
+               
+                
               </ul>
               <div className="flex items-center justify-between text-gray-600">
                 <h4 className="uppercase font-semibold">Genres</h4>
