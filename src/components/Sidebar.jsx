@@ -19,7 +19,7 @@ const genres = [
 function Sidebar() {
   return (
     <>
-      <div className="lg:max-w-[300px] m-2 w-1/4 mx-auto absolute top-2 right-2">
+      <div className=" w-12 md:w-[100px] lg:max-w-[300px] m-2 mx-auto absolute top-2 right-20">
         <div className="flex justify-center items-center">
           <svg
             className="absolute z-20 cursor-pointer top-[13px] left-4"

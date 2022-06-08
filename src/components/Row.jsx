@@ -37,7 +37,7 @@ export const Row = ({ title, requestUrl, selected, setSelected }) => {
           See All <AiOutlineRight />
         </p>
       </div>
-      <div className="flex overflow-hidden min-h-[200px] w-screen">
+      <div className="flex overflow-x-scroll min-h-[200px] w-screen">
         {loading && <Loading />}
         {!loading &&
           movies.map((movie) => (

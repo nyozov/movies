@@ -28,7 +28,7 @@ function App() {
   
  
   return (
-    <div className="App min-h-screen min-w-screen text-white overflow-clip">
+    <div className="App min-h-screen text-white">
       <Sidebar />
       <div className="flex justify-between bg-black">
         <Navbar />
