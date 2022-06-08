@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { AiOutlineRight } from "react-icons/ai";
 import axios from "../axios";
 import Loading from "./Loading";
-import { motion} from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useNavigate, Link } from "react-router-dom";
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
-export const Row = ({ title, requestUrl, selected, setSelected }) => {
+export const Row = ({ title, requestUrl, selected, setSelected, setCategory }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -29,13 +29,18 @@ export const Row = ({ title, requestUrl, selected, setSelected }) => {
     fetchData();
   }, [requestUrl]);
 
+  
+
   return (
     <div className="row p-6 transition-150">
       <div className="flex justify-start items-center">
         <h2 className="text-lg font-bold">{title}</h2>
-        <p className="ml-2 text-gray-500 text-xs cursor-pointer hover:text-gray-400 font-medium flex items-center">
+       <Link to={`/section/${title.split(" ").join("").toLowerCase()}`}>
+        <p 
+        className="ml-2 text-gray-500 text-xs cursor-pointer hover:text-gray-400 font-medium flex items-center">
           See All <AiOutlineRight />
         </p>
+        </Link>
       </div>
       <div className="flex overflow-x-scroll min-h-[200px] w-screen">
         {loading && <Loading />}

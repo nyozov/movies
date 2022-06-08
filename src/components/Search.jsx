@@ -16,10 +16,10 @@ const genres = [
   { name: "Romance" },
 ];
 
-function Sidebar() {
+function Search() {
   return (
     <>
-      <div className=" w-12 md:w-[100px] lg:max-w-[300px] m-2 mx-auto absolute top-2 right-20">
+      <div className="relative lg:max-w-[300px] m-2 mx-auto">
         <div className="flex justify-center items-center">
           <svg
             className="absolute z-20 cursor-pointer top-[13px] left-4"
@@ -40,7 +40,7 @@ function Sidebar() {
             type="text"
             name
             id
-            placeholder="Search Movies"
+            placeholder="Search Shows"
           />
         </div>
       </div>
@@ -48,4 +48,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Search;

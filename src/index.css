@@ -41,6 +41,10 @@ code {
   filter: brightness(70%);
 }
 
+.dark-gradient {
+  background: linear-gradient(to bottom, transparent 0%, transparent 45%, black 100%);
+}
+
 .text-shadow {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -60,8 +64,23 @@ code {
     rgba(221, 175, 69, 0.3) 84%,
     rgba(221, 175, 69, 0.01) 100%
   );
+  
   border-radius: 10px;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.button-glassmorphism:hover{
+  background: rgb(221, 175, 69);
+  background: linear-gradient(
+    90deg,
+    rgba(221, 175, 69, 0.6) 84%,
+    rgba(221, 175, 69, 0.3) 100%
+  );
+  
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 1);
 }

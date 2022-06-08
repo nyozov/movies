@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
+import Search from "./Search";
 const genres = [
   { name: "Action" },
   { name: "Comedy" },
@@ -57,12 +58,8 @@ export default function Home() {
           >
             <div className="px-8">
               <div className="flex items-center justify-between">
-                <div className="w-32">
-                  <img
-                    className="w-full"
-                    src="https://cdn.tuk.dev/assets/components/todos/logo.png"
-                    alt="quicklist logo"
-                  />
+                <div className="w-full">
+                  <h2 className='text-xl'>Tv Show App</h2>
                 </div>
                 <div
                   onClick={() => setMenu(!menu)}
@@ -151,6 +148,7 @@ export default function Home() {
                
                 
               </ul>
+                <Search/>
               <div className="flex items-center justify-between text-gray-600">
                 <h4 className="uppercase font-semibold">Genres</h4>
                 <svg
@@ -175,9 +173,11 @@ export default function Home() {
 
                 <div className="grid grid-cols-2 gap-2 py-4">
                   {genres.map((genre) => (
+                    <Link to={`/section/${genre.name.toLowerCase()}`}>
                     <div className="bg-red-600 text-xs shadow font-semibold px-2 p-1 hover:bg-red-700 flex items-center justify-start cursor-pointer rounded-full text-white">
                       {genre.name}
                     </div>
+                    </Link>
                   ))}
                 </div>
              
