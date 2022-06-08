@@ -17,12 +17,14 @@ import Search from "./components/Search";
 import NetflixOriginals from "./components/sections/NetflixOriginals";
 import TopRated from "./components/sections/TopRated";
 import TopTrending from "./components/sections/TopTrending";
+import SearchResult from "./components/sections/SearchResult";
 
 function App() {
   const location = useLocation();
 
   const [selected, setSelected] = useState({});
   const [category, setCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     console.log("selected", selected);
@@ -31,9 +33,9 @@ function App() {
   }, []);
 
   return (
-    <div className="App min-h-screen text-white">
+    <div className="App min-h-screen overflow-x-clip text-white">
       <div className="flex justify-between bg-black">
-        <Navbar />
+        <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         <Routes>
           <Route
             path={
@@ -41,17 +43,33 @@ function App() {
               Array(location.pathname.split("").splice(1, 7).toString())
                 .join()
                 .replace(/,/g, "") === "section"
+                ||
+                location.pathname === "/" ||
+              Array(location.pathname.split("").splice(1, 6).toString())
+                .join()
+                .replace(/,/g, "") === "search"
                 ? `/${String(selected.id)}`
                 : location.pathname
             }
             element={<Selected selected={selected} setSelected={setSelected} />}
           />
+          <Route path={
+           Array(location.pathname.split("").splice(1, 6).toString())
+           .join()
+           .replace(/,/g, "") === "search"
+           ? location.pathname
+           : `/search=${searchQuery}`
+        
+        
+        
+        } element={<SearchResult searchQuery={searchQuery} setSearchQuery={setSearchQuery} setSelected={setSelected}/>}/>
+         
           <Route
             path={`/section/netflixoriginals`}
-            element={<NetflixOriginals />}
+            element={<NetflixOriginals setSelected={setSelected}/>}
           />
-          <Route path={`/section/toprated`} element={<TopRated />} />
-          <Route path={`/section/toptrending`} element={<TopTrending />} />
+          <Route path={`/section/toprated`} element={<TopRated setSelected={setSelected}/>} />
+          <Route path={`/section/toptrending`} element={<TopTrending setSelected={setSelected}/>} />
 
           <Route
             path="/"

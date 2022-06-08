@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
-export const Row = ({ title, requestUrl, selected, setSelected, setCategory }) => {
+export const Row = ({ title, requestUrl, selected, setSelected }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ export const Row = ({ title, requestUrl, selected, setSelected, setCategory }) =
       console.log(request.data.results);
 
       setMovies(request.data.results);
-      setTimeout(() => setLoading(false), 1000);
+      setTimeout(() => setLoading(false), 150);
     };
     fetchData();
   }, [requestUrl]);

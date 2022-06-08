@@ -44,7 +44,7 @@ function Selected({ selected, setSelected }) {
         src={`${baseUrl}${selected.backdrop_path}`}
       />
       <div className='dark-gradient absolute top-0 left-0 object-cover h-[64vh] md:h-[70h] w-screen '/>
-      <div className="z-10 mt-24 flex justify-center w-full items-center flex-col">
+      <div className="absolute top-0  flex justify-center h-full w-full items-center flex-col">
         <h2 className="text-shadow text-3xl font-semibold">
           {selected.name || selected.title}
         </h2>
@@ -68,11 +68,11 @@ function Selected({ selected, setSelected }) {
           <AiFillPlaySquare className="text-white rounded-lg ml-2" />
         </div>
       </div>
-      <div className="p-6 text-shadow z-10 flex flex-col justify-start w-full mt-52">
+      <div className="p-6 text-shadow flex flex-col justify-start w-full mt-[500px]">
         <h2 className="text-gray-300 font-semibold">Plot Summary</h2>
         <p className=" text-sm text-gray-400">{selected.overview}</p>
         <h2 className="text-gray-300 mt-2 font-semibold">Cast</h2>
-        <div className="mt-2 flex overflow-x-scroll gap-4 justify-start items-start">
+        <div className="mt-2 flex z-10 overflow-x-scroll gap-4 justify-start items-start">
           {cast &&
             cast.map((actor) => (
               <div className="flex flex-col ml-6 justify-center items-center">

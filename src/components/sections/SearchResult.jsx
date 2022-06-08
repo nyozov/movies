@@ -1,39 +1,39 @@
-import {useState, useEffect} from 'react'
-import { motion } from 'framer-motion';
-import axios from "../../axios";
-import requests from '../../requests';
+import React from 'react'
+import { useEffect, useState } from 'react'
 import Loading from '../Loading';
-import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {motion} from 'framer-motion'
+const api_key = process.env.REACT_APP_API_KEY
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
-function NetflixOriginals({setSelected}) {
-const [shows, setShows] = useState([])
-const [loading, setLoading] = useState(false)
+function SearchResult({setSelected}) {
+  const [loading, setLoading] = useState(false);
+  const [shows, setShows] = useState([]);
+ 
+  const location = useLocation()
+  const navigate = useNavigate()
   useEffect(() => {
-    setLoading(true)
-  
     const fetchData = async () => {
-      const request = await axios.get(requests.fetchNetflixOriginals);
+      const searchQuery = location.pathname.slice(8)
+      const request = await axios.get(
+        `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
+      );
       console.log(request.data.results);
-
       setShows(request.data.results);
-    setLoading(false)
-    
     };
-    fetchData();
-  }, []);
-
-  const navigate = useNavigate();
+    (async () => await fetchData())();
+  }, [location.pathname]);
   const handleClick = (movie) => {
     setSelected(movie);
 
     navigate(`/${String(movie.id)}`);
   }
+  
   return (
     <div className="row p-6 transition-150">
       <div className="flex justify-start items-center">
-        <h2 className="text-lg font-bold">Netflix Originals</h2>
+        <h2 className="text-lg font-bold">search = {location.pathname}</h2>
       
       </div>
       <div className='flex justify-center'>
@@ -55,4 +55,4 @@ const [loading, setLoading] = useState(false)
   )
 }
 
-export default NetflixOriginals
+export default SearchResult

@@ -9,7 +9,7 @@ const genres = [
   { name: "Romance" },
 ];
 
-export default function Home() {
+export default function Home({searchQuery, setSearchQuery}) {
   const navigate = useNavigate()
   const [query, setQuery] = useState("");
   const spring = {
@@ -19,7 +19,7 @@ export default function Home() {
     duration: 0.3,
   };
 
-  console.log("query", query);
+ 
   const [menu, setMenu] = useState(false);
  
   return (
@@ -27,7 +27,7 @@ export default function Home() {
       {
         <div
           onClick={() => setMenu(!menu)}
-          className="fixed z-10 flex items-center justify-center rounded-r-md bg-gray-800 hover:bg-gray-700 text-gray-300 ml-0 cursor-pointer inset-0 mt-10 m-auto w-8 h-8"
+          className="fixed z-20 flex items-center justify-center rounded-r-md bg-gray-800 hover:bg-gray-700 text-gray-300 ml-0 cursor-pointer inset-0 mt-10 m-auto w-8 h-8"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +148,7 @@ export default function Home() {
                
                 
               </ul>
-                <Search/>
+                <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} setMenu={setMenu}/>
               <div className="flex items-center justify-between text-gray-600">
                 <h4 className="uppercase font-semibold">Genres</h4>
                 <svg
