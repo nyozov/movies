@@ -23,7 +23,7 @@ const [loading, setLoading] = useState(false)
     
     };
     fetchData();
-  }, []);
+  }, [requestUrl]);
   const navigate = useNavigate();
   const location = useLocation();
   const handleClick = (movie) => {
@@ -32,13 +32,13 @@ const [loading, setLoading] = useState(false)
     navigate(`/${String(movie.id)}`);
   }
   return (
-    <div className="row p-6 transition-150">
-      <div className="flex justify-start items-center">
+    <div className="row p-6 transition-150 h-full bg-black">
+      <div className="flex justify-start items-center bg-black h-full">
         <h2 className="text-lg font-bold">{location.pathname.slice(9)}</h2>
       
       </div>
       <div className='flex justify-center'>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-2 ">
+      <div className="grid bg-black h-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-2 ">
         {loading && <Loading />}
         {!loading && shows &&
           shows.map((movie) => (

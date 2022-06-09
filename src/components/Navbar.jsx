@@ -5,8 +5,8 @@ import Search from "./Search";
 const genres = [
   { name: "Action" },
   { name: "Comedy" },
-  { name: "Horror" },
-  { name: "Romance" },
+  { name: "Animation" },
+  { name: "Drama" },
 ];
 
 export default function Home({searchQuery, setSearchQuery}) {

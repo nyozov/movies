@@ -35,12 +35,12 @@ function SearchResult({setSelected, searchQuery, setSearchQuery}) {
   
   return (
     <div className="row p-6 transition-150">
-      <div className="flex justify-start items-center">
+      <div className="flex justify-start flex-col items-center">
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-        <h2 className="text-lg font-bold">search = {location.pathname}</h2>
+        <p className="text-xs font-light">search for: {location.pathname.slice(8).split('%20').join(" ")}</p>
       
       </div>
-      <div className='flex justify-center'>
+      <div className='flex justify-center mt-2'>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-2 ">
         {loading && <Loading />}
         {!loading &&

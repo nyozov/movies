@@ -8,6 +8,14 @@ const urlHelper = (url) => {
 
     case "toprated":
       return "fetchTopRated";
+    case "action":
+      return "fetchAction";
+    case "comedy":
+      return "fetchComedy";
+    case "drama":
+      return "fetchDrama";
+    case "animation":
+      return "fetchAnimation";
   }
 };
 
