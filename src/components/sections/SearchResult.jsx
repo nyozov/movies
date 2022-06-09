@@ -4,10 +4,13 @@ import Loading from '../Loading';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {motion} from 'framer-motion'
+
+import Search from '../Search';
+
 const api_key = process.env.REACT_APP_API_KEY
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
-function SearchResult({setSelected}) {
+function SearchResult({setSelected, searchQuery, setSearchQuery}) {
   const [loading, setLoading] = useState(false);
   const [shows, setShows] = useState([]);
  
@@ -33,6 +36,7 @@ function SearchResult({setSelected}) {
   return (
     <div className="row p-6 transition-150">
       <div className="flex justify-start items-center">
+        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         <h2 className="text-lg font-bold">search = {location.pathname}</h2>
       
       </div>

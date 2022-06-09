@@ -1,8 +1,9 @@
 import { Row } from "./components/Row";
 import requests from "./requests";
+import urlHelper from "./urlHelper";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Search";
 import { useState, useEffect } from "react";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,11 +14,12 @@ import {
   useLocation,
 } from "react-router-dom";
 import Selected from "./components/Selected";
-import Search from "./components/Search";
+
 import NetflixOriginals from "./components/sections/NetflixOriginals";
 import TopRated from "./components/sections/TopRated";
 import TopTrending from "./components/sections/TopTrending";
 import SearchResult from "./components/sections/SearchResult";
+import Section from "./components/Section";
 
 function App() {
   const location = useLocation();
@@ -37,6 +39,8 @@ function App() {
       <div className="flex justify-between bg-black">
         <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         <Routes>
+
+          {/* routing for selected tv show */}
           <Route
             path={
               location.pathname === "/" ||
@@ -64,12 +68,12 @@ function App() {
         
         } element={<SearchResult searchQuery={searchQuery} setSearchQuery={setSearchQuery} setSelected={setSelected}/>}/>
          
-          <Route
+          {/* <Route
             path={`/section/netflixoriginals`}
             element={<NetflixOriginals setSelected={setSelected}/>}
           />
           <Route path={`/section/toprated`} element={<TopRated setSelected={setSelected}/>} />
-          <Route path={`/section/toptrending`} element={<TopTrending setSelected={setSelected}/>} />
+          <Route path={`/section/toptrending`} element={<TopTrending setSelected={setSelected}/>} /> */}
 
           <Route
             path="/"
@@ -100,6 +104,12 @@ function App() {
               </div>
             }
           />
+          <Route path={
+            location.pathname.slice(1,8) === 'section' ?
+            location.pathname
+            : '/'
+        
+        } element={<Section setSelected={setSelected} requestUrl={urlHelper(location.pathname.slice(9))}/>}/>
         </Routes>
       </div>
     </div>

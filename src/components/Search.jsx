@@ -8,7 +8,7 @@ function Search({ searchQuery, setSearchQuery, setMenu }) {
     e.preventDefault();
     setSearchQuery(search);
     navigate(`/search=${search}`)
-    setMenu(false)
+    setSearch('')
     
     console.log(searchQuery);
   };

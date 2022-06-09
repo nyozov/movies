@@ -58,7 +58,7 @@ function Selected({ selected, setSelected }) {
         <div className="flex mt-2 justify-evenly w-5/12 xl:w-4/12">
           {selected.genres &&
             selected.genres.map((genre) => (
-              <div className="text-xs w-36 min-w-[115px] flex justify-center items-center text-semibold text-shadow shadow white-glassmorphism p-1 px-2">
+              <div className="text-xs w-36  flex justify-center items-center text-semibold text-shadow shadow white-glassmorphism p-1 px-2">
                 {genre.name}
               </div>
             ))}
