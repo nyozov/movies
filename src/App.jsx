@@ -14,11 +14,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Selected from "./components/Selected";
-
-import NetflixOriginals from "./components/sections/NetflixOriginals";
-import TopRated from "./components/sections/TopRated";
-import TopTrending from "./components/sections/TopTrending";
-import SearchResult from "./components/sections/SearchResult";
+import SearchResult from "./components/SearchResult";
 import Section from "./components/Section";
 
 function App() {
@@ -35,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App min-h-screen overflow-x-clip text-white">
+    <div className="App min-h-screen overflow-x-clip text-white bg-black -z-30">
       <div className="flex justify-between bg-black">
         <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
         <Routes>

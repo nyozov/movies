@@ -1,11 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import Loading from '../Loading';
+import Loading from './Loading';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {motion} from 'framer-motion'
 
-import Search from '../Search';
+import Search from './Search';
 
 const api_key = process.env.REACT_APP_API_KEY
 const baseUrl = "https://image.tmdb.org/t/p/original/";

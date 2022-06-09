@@ -26,10 +26,10 @@ const [loading, setLoading] = useState(false)
   }, [requestUrl]);
   const navigate = useNavigate();
   const location = useLocation();
-  const handleClick = (movie) => {
-    setSelected(movie);
+  const handleClick = (show) => {
+    setSelected(show);
 
-    navigate(`/${String(movie.id)}`);
+    navigate(`/${String(show.id)}`);
   }
   return (
     <div className="row p-6 transition-150 h-full bg-black">
@@ -41,13 +41,13 @@ const [loading, setLoading] = useState(false)
       <div className="grid bg-black h-full grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-2 ">
         {loading && <Loading />}
         {!loading && shows &&
-          shows.map((movie) => (
+          shows.map((show) => (
             <motion.img
               initial={{ x: 100, opacity: 0 }}
-              onClick={()=>handleClick(movie)}
+              onClick={()=>handleClick(show)}
               animate={{ x: 0, opacity: 1 }}
-              className="h-[350px] w-[250px] duration-150 img-filter cursor-pointer shadow object-cover mr-2 rounded"
-              src={`${baseUrl}${movie.poster_path}`}
+              className="h-[300px] w-[250px] duration-150 img-filter cursor-pointer shadow object-cover mr-2 rounded"
+              src={`${baseUrl}${show.poster_path}`}
             />
           ))}
       </div>
