@@ -8,6 +8,11 @@ export default {
   fetchComedy: `/discover/tv?api_key=${api_key}&with_genres=35`,
   fetchDrama: `/discover/tv?api_key=${api_key}&with_genres=18`,
   fetchAnimation: `/discover/tv?api_key=${api_key}&with_genres=16`,
+  fetchDocumentary: `/discover/tv?api_key=${api_key}&with_genres=99`,
+  fetchMystery: `/discover/tv?api_key=${api_key}&with_genres=9648`,
+  fetchCrime: `/discover/tv?api_key=${api_key}&with_genres=80`,
+  fetchReality: `/discover/tv?api_key=${api_key}&with_genres=10764`,
+
  
   
 

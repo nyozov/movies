@@ -7,6 +7,10 @@ const genres = [
   { name: "Comedy" },
   { name: "Animation" },
   { name: "Drama" },
+  { name: "Documentary" },
+  { name: "Mystery" },
+  { name: "Crime" },
+  { name: "Reality" },
 ];
 
 export default function Home({searchQuery, setSearchQuery}) {

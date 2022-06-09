@@ -16,6 +16,14 @@ const urlHelper = (url) => {
       return "fetchDrama";
     case "animation":
       return "fetchAnimation";
+    case "documentary":
+      return "fetchDocumentary";
+    case "mystery":
+      return "fetchMystery";
+    case "crime":
+      return "fetchCrime";
+    case "reality":
+      return "fetchReality";
   }
 };
 
