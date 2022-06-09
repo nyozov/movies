@@ -3,11 +3,13 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { AiFillPlaySquare, AiFillStar } from "react-icons/ai";
+import TrailerModal from "./TrailerModal";
 
 const api_key = process.env.REACT_APP_API_KEY;
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
 function Selected({ selected, setSelected }) {
+  const [modal, setModal] = useState(false);
   const [cast, setCast] = useState([]);
   const location = useLocation();
   console.log("pathname", location.pathname);
@@ -35,10 +37,12 @@ function Selected({ selected, setSelected }) {
 
   return (
     <motion.div
+    onClick={()=> modal && setModal(false)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="h-screen w-screen bg-transparent flex justify-center flex-col items-center"
     >
+      {modal && <TrailerModal selected={selected} setModal={setModal}/>}
       <img
         className="duration-150 absolute top-0 left-0 object-cover h-[64vh] md:h-[70h] w-screen"
         src={`${baseUrl}${selected.backdrop_path}`}
@@ -63,7 +67,10 @@ function Selected({ selected, setSelected }) {
               </div>
             ))}
         </div>
-        <div className="cursor-pointer font-semibold flex items-center justify-center shadow hover:border-gray-200 duration-150 button-glassmorphism mt-2 p-2 px-3">
+        <div 
+        onClick={()=>setModal(true)}
+        
+        className="cursor-pointer font-semibold flex items-center justify-center shadow hover:border-gray-200 duration-150 button-glassmorphism mt-2 p-2 px-3">
           Watch Trailer{" "}
           <AiFillPlaySquare className="text-white rounded-lg ml-2" />
         </div>
