@@ -14,7 +14,6 @@ function TrailerModal({ setModal, selected }) {
       const request = await axios.get(
         `https://api.themoviedb.org/3/tv/${selected.id}/videos?api_key=${api_key}&language=en-US`
       );
-      console.log(request.data.results[0].key);
       setTrailer(request.data.results[0].key);
     };
     fetchData();

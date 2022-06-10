@@ -21,7 +21,6 @@ function Selected({ selected, setSelected }) {
       const request = await axios.get(
         `https://api.themoviedb.org/3/tv${location.pathname}?api_key=${api_key}`
       );
-      console.log(request.data);
       setSelected(request.data);
     };
     (async () => await fetchData())();
@@ -33,7 +32,6 @@ function Selected({ selected, setSelected }) {
       const request = await axios.get(
         `https://api.themoviedb.org/3/tv${location.pathname}/credits?api_key=${api_key}&language=en-US`
       );
-      console.log("cast = ", request.data);
       setCast(request.data.cast);
     };
     fetchData();

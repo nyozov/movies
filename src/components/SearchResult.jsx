@@ -24,7 +24,6 @@ function SearchResult({ setSelected, searchQuery, setSearchQuery }) {
       const request = await axios.get(
         `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=en-US&query=${searchQuery}&page=1&include_adult=false`
       );
-      console.log(request.data.results);
       setShows(request.data.results);
     };
     (async () => await fetchData())();

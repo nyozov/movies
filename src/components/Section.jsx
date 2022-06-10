@@ -21,8 +21,6 @@ function Section({ setSelected, requestUrl }) {
 
     const fetchData = async () => {
       const request = await axios.get(requests[requestUrl]);
-      console.log(request.data.results);
-
       setShows(request.data.results);
       setLoading(false);
     };

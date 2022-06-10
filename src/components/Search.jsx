@@ -9,11 +9,8 @@ function Search({ searchQuery, setSearchQuery, setMenu }) {
     setSearchQuery(search);
     navigate(`/search=${search}`)
     setSearch('')
-    
-    console.log(searchQuery);
   };
   const handleChange = (e) => {
-    console.log(e.target.value);
     setSearch(e.target.value);
   };
   return (

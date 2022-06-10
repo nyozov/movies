@@ -12,8 +12,6 @@ export default function Row ({ title, requestUrl, selected, setSelected, setCate
   const navigate = useNavigate();
   const handleClick = (movie) => {
     setSelected(movie);
-    console.log(selected.original_name);
-
     navigate(`/${String(movie.id)}`);
   };
 
@@ -21,8 +19,6 @@ export default function Row ({ title, requestUrl, selected, setSelected, setCate
     setLoading(true);
     const fetchData = async () => {
       const request = await axios.get(requestUrl);
-      console.log(request.data.results);
-
       setMovies(request.data.results);
       setTimeout(() => setLoading(false), 150);
     };
