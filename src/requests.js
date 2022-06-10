@@ -1,5 +1,7 @@
 const api_key = process.env.REACT_APP_API_KEY
 
+//requests for moviedb api
+
 export default {
   fetchTrending: `/trending/tv/week?api_key=${api_key}&language=en-US`,
   fetchNetflixOriginals: `/discover/tv?api_key=${api_key}&with_networks=213`,

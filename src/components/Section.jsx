@@ -8,10 +8,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
 function Section({ setSelected, requestUrl }) {
-  
-
   const [shows, setShows] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // react-router helpers
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  //fetch requested section, display on screen
   useEffect(() => {
     setLoading(true);
 
@@ -24,16 +28,15 @@ function Section({ setSelected, requestUrl }) {
     };
     fetchData();
   }, [requestUrl]);
-  const navigate = useNavigate();
-  const location = useLocation();
+
+  //navigate to selected show page
   const handleClick = (show) => {
     setSelected(show);
 
     navigate(`/${String(show.id)}`);
   };
   return (
-    <div
-    className="row p-6 transition-150 h-full bg-black">
+    <div className="row p-6 transition-150 h-full bg-black">
       <div className="flex justify-start items-center bg-black h-full">
         <h2 className="text-lg font-bold">{location.pathname.slice(9)}</h2>
       </div>

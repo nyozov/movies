@@ -1,3 +1,5 @@
+//this function transforms url location to fetch function in requests.js - so app can fetch on refresh
+
 const urlHelper = (url) => {
   switch (url) {
     case "netflixoriginals":

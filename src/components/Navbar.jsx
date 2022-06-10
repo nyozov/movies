@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { AiOutlineStar } from "react-icons/ai";
 import Search from "./Search";
+
+//genres list - displayed on navbar
 const genres = [
   { name: "Action" },
   { name: "Comedy" },
@@ -13,19 +16,20 @@ const genres = [
   { name: "Reality" },
 ];
 
-export default function Home({searchQuery, setSearchQuery}) {
-  const navigate = useNavigate()
-  const [query, setQuery] = useState("");
-  const spring = {
-    type: "spring",
-    damping: 15,
-    stiffness: 100,
-    duration: 0.3,
-  };
+//framer-motion transition
+const spring = {
+  type: "spring",
+  damping: 15,
+  stiffness: 100,
+  duration: 0.3,
+};
 
- 
+export default function Home({ searchQuery, setSearchQuery }) {
   const [menu, setMenu] = useState(false);
- 
+  
+  //react-router helper
+  const navigate = useNavigate();
+
   return (
     <>
       {
@@ -50,7 +54,7 @@ export default function Home({searchQuery, setSearchQuery}) {
           </svg>
         </div>
       }
-     
+
       <AnimatePresence>
         {menu && (
           <motion.div
@@ -63,7 +67,7 @@ export default function Home({searchQuery, setSearchQuery}) {
             <div className="px-8">
               <div className="flex items-center justify-between">
                 <div className="w-full">
-                  <h2 className='text-xl'>Tv Show App</h2>
+                  <h2 className="text-xl">TvHut</h2>
                 </div>
                 <div
                   onClick={() => setMenu(!menu)}
@@ -88,10 +92,9 @@ export default function Home({searchQuery, setSearchQuery}) {
               </div>
               <ul className="my-10 flex flex-wrap">
                 <li className="w-1/2 flex justify-start mb-6 cursor-pointer">
-                  <div onClick={()=>navigate('/')}
-                    
-                    className= "bg-gray-900 hover:bg-gray-700 rounded-md text-gray-400 flex flex-col justify-center items-center w-20 h-20 p-4"
-                      
+                  <div
+                    onClick={() => navigate("/")}
+                    className="bg-gray-900 hover:bg-gray-700 rounded-md text-gray-400 flex flex-col justify-center items-center w-20 h-20 p-4"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -111,48 +114,24 @@ export default function Home({searchQuery, setSearchQuery}) {
                       <rect x={4} y={8} width={6} height={12} rx={2} />
                       <rect x={14} y={8} width={6} height={6} rx={2} />
                     </svg>
+                    <p className="mt-1 uppercase font-semibold text-xs">Home</p>
+                  </div>
+                </li>
+                <li className="w-1/2 flex justify-start mb-6 cursor-pointer">
+                  <div className="bg-gray-900 hover:bg-gray-700 rounded-md text-gray-400 flex flex-col justify-center items-center w-20 h-20 p-4">
+                    <AiOutlineStar className="w-10 h-10" />
+
                     <p className="mt-1 uppercase font-semibold text-xs">
-                      Home
+                      Favorites
                     </p>
                   </div>
                 </li>
-                <li className="w-1/2 flex justify-end mb-6">
-                  <a
-                    href="javascript:void(0)"
-                    className={
-                   
-                       
-                        "bg-transparent rounded-md text-gray-600 flex flex-col justify-center items-center w-20 h-20 p-4"
-                    }
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-inbox"
-                      width={20}
-                      height={20}
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path stroke="none" d="M0 0h24v24H0z" />
-                      <rect x={4} y={4} width={16} height={16} rx={2} />
-                      <path d="M4 13h3l3 3h4l3 -3h3" />
-                    </svg>
-                    <p className="mt-1 uppercase font-semibold text-xs">
-                      inbox
-                    </p>
-                  </a>
-                </li>
-              
-               
-               
-               
-                
               </ul>
-                <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} setMenu={setMenu}/>
+              <Search
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                setMenu={setMenu}
+              />
               <div className="flex items-center justify-between text-gray-600">
                 <h4 className="uppercase font-semibold">Genres</h4>
                 <svg
@@ -172,41 +151,21 @@ export default function Home({searchQuery, setSearchQuery}) {
                   <line x1={5} y1={12} x2={19} y2={12} />
                 </svg>
               </div>
-             
-                
 
-                <div className="grid grid-cols-2 gap-2 py-4">
-                  {genres.map((genre) => (
-                    <Link to={`/section/${genre.name.toLowerCase()}`}>
+              <div className="grid grid-cols-2 gap-2 py-4">
+                {genres.map((genre) => (
+                  <Link to={`/section/${genre.name.toLowerCase()}`}>
                     <div className="bg-red-600 text-xs shadow font-semibold px-2 p-1 hover:bg-red-700 flex items-center justify-start cursor-pointer rounded-full text-white">
                       {genre.name}
                     </div>
-                    </Link>
-                  ))}
-                </div>
-             
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div className="px-8 py-4 w-full border-t border-gray-800 flex items-center text-gray-600 uppercase text-xs">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="cursor-pointer icon icon-tabler icon-tabler-trash"
-                width={18}
-                height={18}
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <line x1={4} y1={7} x2={20} y2={7} />
-                <line x1={10} y1={11} x2={10} y2={17} />
-                <line x1={14} y1={11} x2={14} y2={17} />
-                <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-              </svg>
-              <p className="cursor-pointer pl-2">trash</p>
+            <div className="px-8 py-4 w-full border-t flex justify-center border-gray-800 items-center text-gray-600 uppercase text-xs">
+              <div className="button-glassmorphism cursor-pointer text-white font-semibold shadow p-2 rounded-lg">
+                Sign up for an Account
+              </div>
             </div>
           </motion.div>
         )}

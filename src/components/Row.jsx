@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 const baseUrl = "https://image.tmdb.org/t/p/original/";
 
-export const Row = ({ title, requestUrl, selected, setSelected, setCategory }) => {
+export default function Row ({ title, requestUrl, selected, setSelected, setCategory }) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ export const Row = ({ title, requestUrl, selected, setSelected, setCategory }) =
         </p>
         {/* </Link> */}
       </div>
-      <div className="flex overflow-x-scroll min-h-[200px] w-screen">
+      <div className="flex row__poster overflow-x-scroll min-h-[200px] w-screen">
         {loading && <Loading />}
         {!loading &&
           movies.map((movie) => (
