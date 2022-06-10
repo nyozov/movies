@@ -77,7 +77,7 @@ function Selected({ selected, setSelected }) {
       </div>
       <div className="p-6 text-shadow flex flex-col justify-start w-full mt-[500px]">
         <h2 className="text-gray-300 font-semibold">Plot Summary</h2>
-        <p className=" max-h-[100px] z-20 overflow-auto text-sm text-gray-400">
+        <p className=" max-h-[80px] z-20 overflow-auto text-sm text-gray-400">
           {selected.overview}
         </p>
         <h2 className="text-gray-300 mt-2 font-semibold">Cast</h2>
