@@ -14,9 +14,11 @@ react-scripts: 5.0.1
 
 
 ## Images
-
+Wide View  
 ![wide view](https://github.com/nyozov/movies/blob/master/src/assets/wide-view.png?raw=true)
+Wide with Nav  
 ![nav view](https://github.com/nyozov/movies/blob/master/src/assets/nav-wide.png?raw=true)
+Mobile View  
 ![mobile view](https://github.com/nyozov/movies/blob/master/src/assets/mobile-view.png?raw=true)
 
 ## Deployment 
