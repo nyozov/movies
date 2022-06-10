@@ -1,6 +1,6 @@
 # TvHut
 
-React app using movie db to display tv show information such as plot summary, cast, genres, trailer, and rating. The user can search shows by title, genre, or section(trending, top rated, etc..). Fully functional with react-router, and framer motion animations.
+React app using movie db to display tv show information such as plot summary, cast, genres, trailer, and rating. The user can search shows by title, genre, or section(trending, top rated, etc.). Fully functional with react-router, and framer motion animations.
 
 ## Dependencies
 
