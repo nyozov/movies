@@ -11,9 +11,10 @@ react-dom: ^18.1.0
 react-icons: ^4.4.0  
 react-router-dom: ^6.3.0  
 react-scripts: 5.0.1  
-
+tailwindcss: ^3.0.24
 
 ## Images
+
 Wide View  
 ![wide view](https://github.com/nyozov/movies/blob/master/src/assets/wide-view.png?raw=true)
 Wide with Nav  
@@ -21,6 +22,6 @@ Wide with Nav
 Mobile View  
 ![mobile view](https://github.com/nyozov/movies/blob/master/src/assets/mobile-view.png?raw=true)
 
-## Deployment 
+## Deployment
 
 Checkout the deployed app here: https://tvhut.netlify.app/
