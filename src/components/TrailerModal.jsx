@@ -23,7 +23,7 @@ function TrailerModal({ setModal, selected }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       onClick={(e) => e.stopPropagation()}
-      className="absolute w-screen h-[70vh] z-50 white-glassmorphism"
+      className="absolute w-screen lg:w-3/4 2xl:w-8/12 h-[70vh] z-50 white-glassmorphism"
     >
       <div
         onClick={() => setModal(false)}

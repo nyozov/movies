@@ -48,7 +48,7 @@ function Section({ setSelected, requestUrl }) {
                 initial={{ x: 100, opacity: 0 }}
                 onClick={() => handleClick(show)}
                 animate={{ x: 0, opacity: 1 }}
-                className="h-[300px] w-[250px] duration-150 img-filter cursor-pointer shadow object-cover mr-2 rounded"
+                className="h-[300px] w-[250px] duration-150 img-filter cursor-pointer shadow object-contain mr-2 rounded"
                 src={`${baseUrl}${show.poster_path}`}
               />
             ))}

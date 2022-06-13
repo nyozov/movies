@@ -47,17 +47,17 @@ function Selected({ selected, setSelected }) {
       {/* open trailer modal onclick */}
       {modal && <TrailerModal selected={selected} setModal={setModal} />}
       <img
-        className="duration-150 absolute top-0 left-0 object-cover h-[64vh] md:h-[70h] w-screen"
+        className="h-[64vh] xl:h-[90vh] object-cover duration-150 absolute top-0 left-0   w-screen"
         src={`${baseUrl}${selected.backdrop_path}`}
       />
-      <div className="dark-gradient absolute top-0 left-0 object-cover h-[64vh] md:h-[70h] w-full " />
+      <div className="dark-gradient absolute top-0 left-0 object-cover h-[65vh] md:h-[70h] w-full " />
       <div className="absolute top-0  flex justify-center h-full w-full items-center flex-col">
         <h2 className="text-shadow text-3xl font-semibold">
           {selected.name || selected.title}
         </h2>
         <div className="flex p-1 px-2 justify-center rounded-full items-center bg-[rgba(0,0,0,0.5)]">
           <AiFillStar className="text-yellow-500 text-shadow" />
-          <p className="text-xs text-shadow">{selected.vote_average}</p>
+          <p className="text-xs ml-[1px] font-semibold text-shadow">{selected.vote_average}</p>
         </div>
         <div className="flex mt-2 justify-evenly w-5/12 xl:w-4/12">
           {selected.genres &&
@@ -75,7 +75,7 @@ function Selected({ selected, setSelected }) {
           <AiFillPlaySquare className="text-white rounded-lg ml-2" />
         </div>
       </div>
-      <div className="p-6 text-shadow flex flex-col justify-start w-full mt-[500px]">
+      <div className="p-6 bg-black min-h-[250px] z-10 text-shadow flex flex-col justify-start w-full mt-[500px]">
         <h2 className="text-gray-300 font-semibold">Plot Summary</h2>
         <p className=" max-h-[80px] z-20 overflow-auto text-sm text-gray-400">
           {selected.overview}

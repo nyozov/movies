@@ -16,6 +16,12 @@ const genres = [
   { name: "Reality" },
 ];
 
+const sections = [
+  { name: "Netflix Originals", link:'netflixoriginals' },
+  { name: "Top Trending", link:'toptrending' },
+  { name: "Top Rated", link:'toprated' },
+];
+
 //framer-motion transition
 const spring = {
   type: "spring",
@@ -26,7 +32,7 @@ const spring = {
 
 export default function Home({ searchQuery, setSearchQuery }) {
   const [menu, setMenu] = useState(false);
-  
+
   //react-router helper
   const navigate = useNavigate();
 
@@ -134,22 +140,7 @@ export default function Home({ searchQuery, setSearchQuery }) {
               />
               <div className="flex items-center justify-between text-gray-600">
                 <h4 className="uppercase font-semibold">Genres</h4>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="cursor-pointer icon icon-tabler icon-tabler-plus"
-                  width={20}
-                  height={20}
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <line x1={12} y1={5} x2={12} y2={19} />
-                  <line x1={5} y1={12} x2={19} y2={12} />
-                </svg>
+                
               </div>
 
               <div className="grid grid-cols-2 gap-2 py-4">
@@ -161,9 +152,22 @@ export default function Home({ searchQuery, setSearchQuery }) {
                   </Link>
                 ))}
               </div>
+              <div className="flex items-center justify-between text-gray-600">
+                <h4 className="uppercase font-semibold">Popular Sections</h4>
+                
+              </div>
+              <div className="grid grid-cols-1 gap-2 py-4">
+                {sections.map((section) => (
+                  <Link to={`/section/${section.link.toLowerCase()}`}>
+                    <div className="white-glassmorphism text-xs text-gray-200 shadow font-semibold px-2 p-1 hover:border-gray-200 duration-150 flex items-center justify-start cursor-pointer rounded-full">
+                      {section.name}
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
             <div className="px-8 py-4 w-full border-t flex justify-center border-gray-800 items-center text-gray-600 uppercase text-xs">
-              <div className="button-glassmorphism cursor-pointer text-white font-semibold shadow p-2 rounded-lg">
+              <div className="button-glassmorphism cursor-pointer text-gray-200 font-semibold shadow p-2 rounded-lg">
                 Sign up for an Account
               </div>
             </div>
